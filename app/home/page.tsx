@@ -14,6 +14,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { pre } from "framer-motion/client";
 import { on } from "events";
 import DocumentComponent from "../Components/home/Document";
+import ProgressAnimation from "../Components/LottieFiles/loadbar";
 
 export type UnitItemProps = {
   id: string;
@@ -151,6 +152,9 @@ const page = () => {
       className={`    bg-gradient-to-b from-sky-700 to-white     </li>
  text-black relative `}
     >
+
+
+     
       {/* CARD */}
 
       {/* <motion.div
@@ -223,6 +227,9 @@ const page = () => {
             key={"Summary Body"}
             className="w-10/12 mt-4 p-4  sm:flex-col md:flex-col lg:flex-row lg:flex gap-4 justify-between "
           >
+
+        
+
             <div className="lg:w-8/12 md:w-full sm:w-full flex flex-col xs:mt-10 lg:mt-0 md:mt-0  md:text-xs lg:text-base sm:text-xs text-xs">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
               laboriosam optio beatae culpa, praesentium nihil doloribus iure

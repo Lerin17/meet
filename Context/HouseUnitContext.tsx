@@ -39,7 +39,8 @@ export interface IHouseType {
     NoGuestBedrooms:number,
     Maidroom:boolean,
     floors:IFloor[],
-    assets:IAsset[]
+    assets:IAsset[],
+    CodeName:string
     
 }
 
@@ -50,6 +51,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 4,
         NoGuestBedrooms: 1,
         Maidroom: true,
+        CodeName: 'DD4B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 
@@ -85,6 +87,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 3,
         NoGuestBedrooms: 0,
         Maidroom: false,
+        CodeName: 'TD3B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 
@@ -116,6 +119,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 2,
         NoGuestBedrooms: 0,
         Maidroom: false,
+        CodeName: 'AP2B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 

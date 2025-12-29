@@ -1,10 +1,14 @@
 import { useHomeContext } from '@/Context/HomeContext'
-import React from 'react'
+import React, { useState } from 'react'
+import ProgressAnimation from './LottieFiles/loadbar'
 
 
 const UnitInfo = () => {
 
 const {} = useHomeContext()
+
+// State for controlling the progress bar animation
+const [progress, setProgress] = useState(50); // Default to 50% as shown in the text
 
 const Title = () => {
     return (
@@ -51,7 +55,7 @@ const Sequence = () => {
             </div>
             <div className='w-10/12 ml-3 mt-2 text-stone-800'>
             *
-              <span className='font-bold text-sm 0'>
+              <span className='font-bold text-sm 0 font-milligram'>
                 Engr Kenah
                 </span> was tasked with conducting an inspection on the newly installed chambers
             </div>
@@ -93,9 +97,37 @@ const Sequence = () => {
 
 
         <div className='mt-10 border-t'>
-            <div className='bg-green-400 w-full'>
+            <div className='w-full'>
+                   <ProgressAnimation progress={progress}/>
             Line Bar
         </div>
+        
+        {/* Progress Controls */}
+        <div className='mt-4 flex items-center gap-4'>
+            <label className='text-sm text-gray-300'>Progress:</label>
+            <input
+                type='range'
+                min='0'
+                max='100'
+                value={progress}
+                onChange={(e) => setProgress(Number(e.target.value))}
+                className='w-32'
+            />
+            <span className='text-sm text-gray-300'>{progress}%</span>
+            <button 
+                onClick={() => setProgress(0)}
+                className='px-2 py-1 bg-gray-600 text-white rounded text-xs'
+            >
+                Reset
+            </button>
+            <button 
+                onClick={() => setProgress(100)}
+                className='px-2 py-1 bg-green-600 text-white rounded text-xs'
+            >
+                Complete
+            </button>
+        </div>
+        
             <div>
                                 Total time in rotation:
             </div>

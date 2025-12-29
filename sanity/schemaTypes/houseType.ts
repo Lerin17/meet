@@ -31,6 +31,12 @@ export const houseType = defineType({
       type: 'boolean',
     }),
     defineField({
+      name: 'codeName',
+      title: 'Code Name',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'floors',
       title: 'Floors',
       type: 'array',
