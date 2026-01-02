@@ -2,12 +2,84 @@ import React from 'react'
 
 const MetaInfo = () => {
   return (
-    <div className='w-full flex justify-center bg-gradient-to-r from-neutral-800 to-stone-900 relative text-sm' >
+    <div className='w-full flex justify-end bg-gradient-to-r from-neutral-800 to-stone-900 relative text-sm' >
 
       
-<div className='absolute w-full border-t border-from-neutral-800 to-stone-900  z-10 top-8'>
+{/* <div className='absolute w-full border-t border-from-neutral-800 to-stone-900  z-10 top-8'>
   x
+</div> */}
+{/* 
+<div className='w-10/12  flex '>
+<div className='w-1/3 flex flex-col justify-center items-end p-2 text-white '>
+  <div className=''>
+    14th of December 2023
+  </div>
+    
+    <div className='w-fit ml-20 text-right'>
+      Attendess
+    </div>
 </div>
+
+
+<div className='w-1/3 flex flex-col   items-left p-2 text-white '>
+  <div>
+    Venue: Kabusa Garden
+  </div>
+
+  <div>
+    Anchored by: Engr Felix
+  </div>
+</div>
+
+
+<div className='w-1/3 flex flex-col justify-center items-start   pt-0 border text-white'>
+
+
+  <div className='relative flex  pr-6   border '>
+    Lerin Owoade
+
+      <div className='border-r h-7 right-0 absolute ml-4'>
+    
+    </div>
+  </div>
+
+  <div className=' relative flex  pr-4'>
+    Lerin Owoade
+
+    <div className='border-r h-7 right-0 absolute ml-4'>
+    
+    </div>
+  </div>
+
+</div>
+
+</div> */}
+
+
+<div className='absolute   w-10/12 h-full flex'>
+<div className='flex-col  w-1/3'>
+  <div
+  style={{
+    width:"49%"
+  }}
+  className=' h-7 border-r border-neutral-600 text-hidden'>
+    .
+  </div>
+
+  <div 
+   style={{
+    width:"24%"
+  }}
+  className=' h-7 border-r border-neutral-600 text-hidden'>
+    .
+  </div>
+</div>
+</div>
+
+
+
+
+
 <div className='w-10/12 flex flex-col justify-between rounded-lg-t rounded-lg mt-2 '>
 
                   <div className="w-full  justify-between flex text-gray-100">
@@ -21,7 +93,7 @@ const MetaInfo = () => {
         </div>
 
                     <div className="w-full border-sky-100 justify-between flex  text-gray-100 ">
-          <div className="border-r border-neutral-900 font-bold px-2 hover:bg-white">Attendees</div>
+          <div className=" font-bold px-2 hover:bg-white">Attendees</div>
 
           <div className="border-r border-from-neutral-800 to-stone-9000 flex flex-col px-2 pb-2  hover:bg-white justify">
      
@@ -32,7 +104,7 @@ const MetaInfo = () => {
 
           <div></div>
         </div>
-    </div>
+    </div> 
     </div>
     
  

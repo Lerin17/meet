@@ -2,6 +2,107 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { IHouseType, defaultHouses } from "./HouseUnitContext";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { u } from "framer-motion/client";
+import { db } from "@/lib/firebase";
+import { get } from "http";
+import { number } from "framer-motion";
+
+interface IpreviousStates {
+    phaseName:string,
+    startDate:string,
+    endDate:string,
+    progressPercentage:number
+    comments:string[]
+}
+
+interface Ihouses {
+  houseCode:string,
+  buildingType:string,
+  lastAction:string,
+  currentProgress:number
+  phase:string
+  percentComplete:number
+  isCompleted:boolean
+  deliveryStop: string
+}
+
+interface UnitInventory {
+    UnitOrder:'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G '| 'H' | 'I'| 'J',
+    Unittype:IHouseType
+}
+
+interface IUnit {
+  unitId: string,
+  legacy?: {
+    source: 'manual' | 'imported',
+    ingestionDate?: string,
+    confidence:'high' | 'medium' | 'low'
+  },
+  dataQuality?: {
+    missingFields: string[],
+  },
+  excludedDates: string[],
+  requiresReview: boolean,
+  notes?: string[],
+
+  identity: {
+    name: string,
+    buildingType: [
+      {
+        code:'J',
+        label:'3_Bedroom_terrace_duplex'
+      }
+    ],
+
+    numberOfBedrooms: number,
+    location: {
+      city: string,
+      district: string,
+      estate: string,
+      axis: string,
+    }
+  },
+
+  state: {
+    currentPhase: 'Foundation' | 'DPC' | 'Ground_Floor' | 'First_Floor' | 'Roofing' | 'Finishing' | 'Completed' | 'Handover',
+    constructionStatus: string,
+    occupancyStatus: string,
+    lastUpdated: string,
+    progress: {
+      currentPhase: string,
+      ProgressValue: number,
+      overallProgressPercentage: number,
+    },
+    isCompleted: boolean,
+    fundedStatus: 'funded' | 'not_funded' | 'partially_funded',
+    lastUpdatedAt: string,
+    nextMilestone: {
+      milestoneName: string,
+      expectedCompletionDate: string,
+    },
+
+    previousStates: IpreviousStates[]
+
+    team: {
+      supervisingEngineer: string,
+      projectManager: string,
+      siteSupervisor?: string,
+      contractor: string,
+    }
+  }
+
+
+  houses: Ihouses[];
+
+
+}
+
+
+const Phases = [
+  'Foundation',
+  'DPC',]
+
 
 export type Unit = {
   id: string;
@@ -248,50 +349,122 @@ const [dynamicUnitData, setdynamicUnitData] = React.useState();
 
 const [staticUnitData, setstaticUnitData] = React.useState();
 
+const getUnitsFromFirestore = async () => {
+  try {
+    const q = query(collection(db, "Units"));
+    const snapshot = await getDocs(q)
+
+    const UnitData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+
+    console.log(UnitData, 'unitName')
+    
+
+  setUnits(UnitData as Unit[])    
+    }
+  
+   catch (error) {
+    console.error("Failed to fetch Units:", error);
+    throw error;
+  }
+
+  }
+
+
+useEffect( () => {
+  console.log('cow')
+getUnitsFromFirestore()
+
+
+}, []);
 
 const CastingofSlab = ['Installation of formwork', 'Placing of Reinforcement', 'FF:Placing of props for support', 'Pro']
 
 const hashtag = 'location is superposition'
 
-const WorkItems = [
-  'Construction to Carcass',
-  'SettingOut',
-  'Excavation of Foundation Trenches',
-  'Excavtion of foundation trench buckets',
-  'Blinding of Foundation Trenches',
-  'installing foundation Reinforcement',
-  '#Casting of the foundation Pillars',
-  'Laying of Foundation Blocks',
-  'Creation of Levels',
-  'Compaction and backfilling',
-  'installing Reinforcement for DPC slab',
-  'Casting of DPC slab',
-  'installing ground floor column Reinforcement',
-  'installing formwork ',
-  'Casting of ground floor foundation',
-  '',
-  'Raising Ground Floor Blockwork to Lintel Level',
-  'Installing Lintel Reinforcement and Formwork',
-  'Casting of Lintels',
-  'Construction of First Floor Slab Formwork and Supports',
-  'Installing First Floor Slab Reinforcement',
-  'Casting of First Floor Slab',
-  'Raising First Floor Blockwork to Lintel Level',
-  'Roof Carpentry Works',
-  'Roof Covering Installation',
-  'Electrical and Mechanical First Fix',
-  'Internal and External Plastering',
-  'Window and Door Frame Installation',
-  'Floor Screeding Works',
-  'Ceiling Installation',
-  'Electrical and Mechanical Second Fix',
-  'Painting and Internal Finishes',
-  'External Works and Landscaping',
-  'Final Cleaning and Handover'
+
+const Casting = [
+  'Placing of Reinforcement',
+  'Installation of formwork',
+  'FF:Placing of props for support',
+  'Pouring of Concrete',
+  'Curing of Concrete'
 ]
 
-const Milestones = [
-  'DPC Milestone', '',
+ const PHASES = [
+  {
+    code: "FOUNDATION",
+    label: "Foundation Phase",
+    workItems: [
+      "Setting_Out",
+      "Excavation_Foundation_Trenches",
+      "Excavation_Foundation_Trench_Buckets",
+      "Blinding_Foundation_Trenches",
+      "Foundation_Reinforcement_Installation",
+      "Casting_Foundation_Columns",
+      "Laying_Foundation_Blocks",
+      "Level_Creation",
+      "Compaction_and_Backfilling"
+    ]
+  },
+
+  {
+    code: "DPC",
+    label: "DPC Phase",
+    workItems: [
+      "DPC_Reinforcement_Installation",
+      "Casting_DPC_Slab"
+    ]
+  },
+
+  {
+    code: "GROUND_FLOOR",
+    label: "Ground Floor Phase",
+    workItems: [
+      "Ground_Floor_Column_Reinforcement",
+      "Ground_Floor_Formwork_Installation",
+      "Casting_Ground_Floor_Columns",
+      "Ground_Floor_Blockwork_to_Lintel",
+      "Lintel_Reinforcement_and_Formwork",
+      "Casting_Lintels"
+    ]
+  },
+
+  {
+    code: "FIRST_FLOOR",
+    label: "First Floor Phase",
+    workItems: [
+      "First_Floor_Slab_Formwork_and_Supports",
+      "First_Floor_Slab_Reinforcement",
+      "Casting_First_Floor_Slab",
+      "First_Floor_Blockwork_to_Lintel"
+    ]
+  },
+
+  {
+    code: "ROOFING",
+    label: "Roofing Phase",
+    workItems: [
+      "Roof_Carpentry_Works",
+      "Roof_Covering_Installation"
+    ]
+  },
+
+  {
+    code: "FINISHING",
+    label: "Finishing Phase",
+    workItems: [
+      "Electrical_and_Mechanical_First_Fix",
+      "Internal_and_External_Plastering",
+      "Window_and_Door_Frame_Installation",
+      "Floor_Screeding_Works",
+      "Ceiling_Installation",
+      "Electrical_and_Mechanical_Second_Fix",
+      "Painting_and_Internal_Finishes",
+      "External_Works_and_Landscaping",
+      "Final_Cleaning_and_Handover"
+    ]
+  }
 ]
 
 

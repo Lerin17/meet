@@ -23,10 +23,10 @@ const TopText = () => {
 
         <div className='text-gray-100 font-bold'>
             <div className='flex items-end'>
-                <div className="text-4xl font-bold">
+                <div className="text-4xl font-inter font-bold">
             J91
           </div>
-          <div className='px-1 pb-1'>
+          <div className='px-1 pb-1 font-monument'>
             A&B
           </div>
                 
@@ -55,7 +55,7 @@ const Sequence = () => {
             </div>
             <div className='w-10/12 ml-3 mt-2 text-stone-800'>
             *
-              <span className='font-bold text-sm 0 font-milligram'>
+              <span className='font-bold text-sm 0 '>
                 Engr Kenah
                 </span> was tasked with conducting an inspection on the newly installed chambers
             </div>

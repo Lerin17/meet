@@ -142,8 +142,8 @@
 }
 
 @font-face {
-  font-family: 'LoveFrom Serif';
-  src: url('/fonts/LoveFrom, Serif L 400/LoveFrom, Serif L 400.ttf') format('truetype');
+  font-family: 'Diatype';
+  src: url('/fonts/Diatype/ABC Diatype.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -163,3 +163,50 @@ h1, h2, h3, h4, h5 {
 code, pre, kbd {
   font-family: var(--font-family-milligram);
 }
+
+/* Font Utility Classes */
+.font-inter {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.font-epilogue {
+  font-family: 'Epilogue', 'Inter', system-ui, sans-serif;
+}
+
+.font-milligram {
+  font-family: 'MilligramMacro', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+}
+
+.font-monument {
+  font-family: 'MonumentSemi', system-ui, sans-serif;
+}
+
+.font-berumias {
+  font-family: 'Berumias', system-ui, sans-serif;
+}
+
+.font-glinka {
+  font-family: 'Glinka', system-ui, sans-serif;
+}
+
+.font-lovefrom {
+  font-family: 'LoveFrom Serif', serif;
+}
+
+.font-diatype {
+  font-family: 'Diatype', system-ui, sans-serif;
+}
+
+/* Font Weight Classes for Inter */
+.font-inter-light { font-weight: 300; }
+.font-inter-normal { font-weight: 400; }
+.font-inter-medium { font-weight: 500; }
+.font-inter-semibold { font-weight: 600; }
+.font-inter-bold { font-weight: 700; }
+
+/* Font Weight Classes for Epilogue */
+.font-epilogue-normal { font-weight: 400; }
+.font-epilogue-medium { font-weight: 500; }
+.font-epilogue-semibold { font-weight: 600; }
+.font-epilogue-bold { font-weight: 700; }
+.font-epilogue-extrabold { font-weight: 800; }
