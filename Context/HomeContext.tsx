@@ -47,7 +47,7 @@ export function HomeProvider({ children }: { children: ReactNode }) {
    
     const red = async () => {
 const data = await client.fetch(`*[_type == "post"]`)
-console.log('Fetched posts in HouseUnitProvider:', data)
+console.log('Fetched posts in HouseUnitProvider: Sanity Data', data)
 }
 
 red()
