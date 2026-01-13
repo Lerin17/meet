@@ -1,0 +1,212 @@
+[
+  {
+    "_id": "unit-j105",
+    "_type": "unit",
+
+    "unitId": "J105",
+
+    "legacy": {
+      "source": "imported",
+      "ingestionDate": "2026-01-01",
+      "confidence": "medium"
+    },
+
+    "dataQuality": {
+      "missingFields": []
+    },
+
+    "excludedDates": [],
+
+    "requiresReview": false,
+
+    "notes": [
+      "Identity fields manually confirmed post-ingestion"
+    ],
+
+    "identity": {
+      "name": "J105",
+      "buildingType": [
+        {
+          "_key": "j-series",
+          "code": "J",
+          "label": "3_Bedroom_terrace_duplex"
+        }
+      ],
+      "numberOfBedrooms": 3,
+      "location": {
+        "city": "Abuja",
+        "district": "Kabusa",
+        "estate": "SunnyVale Gardens",
+        "axis": "Road 21"
+      }
+    },
+
+    "state": {
+      "currentPhase": "First_Floor",
+      "constructionStatus": "In Progress",
+      "occupancyStatus": "Unoccupied",
+      "lastUpdated": "2025-11-24",
+
+      "progress": {
+        "currentPhase": "First_Floor_Slab__Completed",
+        "ProgressValue": 60,
+        "overallProgressPercentage": 60
+      },
+
+      "deliveryStop": "Carcass",
+
+      "isCompleted": false,
+
+      "fundedStatus": "partially_funded",
+
+      "lastUpdatedAt": "2025-11-24",
+
+      "nextMilestone": {
+        "milestoneName": "Roofing",
+        "expectedCompletionDate": null
+      },
+
+      "previousStates": [
+        {
+          "_key": "2025-W27",
+          "week": "2025-W27",
+          "phaseName": "Mobilization",
+          "statusSummary": "Pending funding",
+          "progressPercentage": 0,
+          "comments": []
+        },
+        {
+          "_key": "2025-W35",
+          "week": "2025-W35",
+          "phaseName": "First Floor",
+          "statusSummary": "Slab scheduled",
+          "progressPercentage": 40,
+          "comments": []
+        },
+        {
+          "_key": "2025-W36",
+          "week": "2025-W36",
+          "phaseName": "First Floor",
+          "statusSummary": "Partial slab casting",
+          "progressPercentage": 50,
+          "comments": []
+        },
+        {
+          "_key": "2025-W37",
+          "week": "2025-W37",
+          "phaseName": "First Floor",
+          "statusSummary": "Slab cast",
+          "progressPercentage": 55,
+          "comments": []
+        },
+        {
+          "_key": "2025-W45",
+          "week": "2025-W45",
+          "phaseName": "First Floor",
+          "statusSummary": "First floor slab completed",
+          "progressPercentage": 60,
+          "comments": []
+        }
+      ],
+
+      "team": {
+        "supervisingEngineer": "engr_felix",
+        "projectManager": null,
+        "siteSupervisor": null,
+        "contractor": null
+      }
+    },
+
+    "houses": [
+      {
+        "_key": "A",
+        "houseCode": "A",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "B",
+        "houseCode": "B",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "C",
+        "houseCode": "C",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "D",
+        "houseCode": "D",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "E",
+        "houseCode": "E",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "F",
+        "houseCode": "F",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      },
+      {
+        "_key": "G",
+        "houseCode": "G",
+        "buildingType": "J",
+        "lastAction": "First_Floor_Slab__Completed",
+        "currentProgress": 60,
+        "phase": "First_Floor",
+        "percentComplete": 60,
+        "isCompleted": false,
+        "deliveryStop": "Carcass"
+      }
+    ],
+
+    "events": [],
+
+    "risks": [
+      {
+        "_key": "funding-risk",
+        "level": "medium",
+        "type": "financial",
+        "note": "Funding delays repeatedly referenced in minutes",
+        "dateIdentified": "2025-07-07"
+      }
+    ]
+  }
+]

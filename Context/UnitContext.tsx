@@ -8,10 +8,10 @@ import { db } from "@/lib/firebase";
 import { get } from "http";
 import { number } from "framer-motion";
 
-interface IpreviousStates {
+interface IpreviousweeklyStates {
+    week:string,
     phaseName:string,
-    startDate:string,
-    endDate:string,
+    statusSummary:string,
     progressPercentage:number
     comments:string[]
 }
@@ -70,19 +70,20 @@ interface IUnit {
     occupancyStatus: string,
     lastUpdated: string,
     progress: {
-      currentPhase: string,
+      Description: string,
       ProgressValue: number,
       overallProgressPercentage: number,
     },
+    deliveryStop:string,
     isCompleted: boolean,
     fundedStatus: 'funded' | 'not_funded' | 'partially_funded',
     lastUpdatedAt: string,
     nextMilestone: {
       milestoneName: string,
-      expectedCompletionDate: string,
+      expectedCompletionDate: string | null,
     },
 
-    previousStates: IpreviousStates[]
+    previousStates: IpreviousweeklyStates[]
 
     team: {
       supervisingEngineer: string,
@@ -95,9 +96,20 @@ interface IUnit {
 
   houses: Ihouses[];
 
+  events:[],
+
+  risks:Irisks[],
+
 
 }
 
+
+interface Irisks {
+  level: 'low' | 'medium' | 'high',
+  type: string,
+  note: string,
+  dateIdentified?: string,
+}
 
 const Phases = [
   'Foundation',
