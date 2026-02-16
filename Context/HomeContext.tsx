@@ -30,6 +30,8 @@ type HomeContextValue = {
     // Array for current and new unit items displayed in UnitInfo
     currentUnitItems: [Unit | null, Unit | null];
     setCurrentUnitItems: React.Dispatch<React.SetStateAction<[any, any]>>
+    isEditor: boolean;
+    setIsEditor: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const HomeContext = createContext<HomeContextValue | undefined>(undefined);
@@ -40,6 +42,9 @@ export function HomeProvider({ children }: { children: ReactNode }) {
     const [scrollValue, setscrollValue] = useState <number>(0);
     const [virtualScrollValue, setVirtualScrollValue] = React.useState<number>(0);
     const [showUnitInfo, setshowUnitInfo] = React.useState<boolean>(false);
+
+    // Editor mode state
+    const [isEditor, setIsEditor] = useState<boolean>(false);
 
     const [openUnitMenu, setopenUnitMenu] = useState<boolean>(false);
 
@@ -73,6 +78,8 @@ red()
                 setVirtualScrollValue,
                  progressX,
                  showUnitInfo,
+                  isEditor,
+                  setIsEditor,
                  setshowUnitInfo,
                  currentUnitItems,
                  setCurrentUnitItems

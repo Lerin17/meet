@@ -3,10 +3,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { IHouseType, defaultHouses } from "./HouseUnitContext";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { u } from "framer-motion/client";
+import { i, u } from "framer-motion/client";
 import { db } from "@/lib/firebase";
 import { get } from "http";
-import { number } from "framer-motion";
+import { m, number } from "framer-motion";
+import { type } from "os";
+import { unitsMockData } from "@/data/j/data";
+
 
 interface IpreviousweeklyStates {
     week:string,
@@ -46,6 +49,8 @@ interface IUnit {
   requiresReview: boolean,
   notes?: string[],
 
+  isJointVenture: boolean,
+  JointVenturePartners?: string[],
   identity: {
     name: string,
     buildingType: [
@@ -103,6 +108,314 @@ interface IUnit {
 
 }
 
+// MAIN DATA STATES
+
+
+const isCapitalized = (word: string) => /^[A-Z]/.test(word);
+
+const isUnitCode = (word: string) => {
+  const e = /^[A-Z]\d{1,2}$/.test(word)
+  console.log('isUnitCode check for', word, e)
+  return e
+};
+
+
+const isElement = (word:string) => {
+const mocktext = ['scaffolding', 'props', 'gable', 'BW', 'col', 'lin', 'slab', 'roof', 'beam']
+const check = mocktext.includes(word)
+
+return check
+}
+
+const isPhase = (word:string) => { 
+  const pool = []
+return true
+}
+
+const isStatus = (word:string) => {
+  const pool = ['done', 'complete', 'completed', 'awaiting',]
+}
+
+const isFloor = (word:string) => {
+  const pool = ["GF","FF",'SF']
+
+  const check = pool.includes(word)
+
+  return check
+}
+
+const isUnit = (word:string) => {
+  const stringx = word.split('_')
+
+  const redxq= stringx[0]
+const words = redxq.split('');
+
+
+  const lettercode = []
+const numbercode = []
+
+const filterx =  words.map(item => {
+  const con = Number(item);
+
+  if( isNaN(Number(item))){
+    lettercode.push(item)
+
+  }else if(typeof item){
+    numbercode.push(item)
+  }
+})
+
+
+
+if(lettercode.length == 0 || numbercode.length == 0){
+return false
+}else{
+  return true
+}
+
+}
+
+const categorizer = (word:any) => {
+  if(isUnitCode(word)){
+    return {
+      type:'unitCode',
+      data:word
+    }
+  }else if(isFloor(word)){
+    return {
+      type:'floor',
+      data:word
+    }
+  }
+  
+  else if(isElement(word)){
+    return {
+      type:'element',
+      data:word
+    }
+  }else if(isPhase(word)){
+    return {
+      type:'phase',
+      data:word
+    }
+}else{
+  return {
+    data:word
+  }
+}
+}
+
+const breakdownword = (word:string) => {
+const wordparts = word.split(' ')
+
+
+const xa = wordparts.map((item:any) => (
+  
+    categorizer(item)
+  
+))
+
+console.log(xa, 'categorizer')
+
+}
+
+
+breakdownword('P17 FF Cast Completed')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const  transformedUnitDataPayload = (data:IUnit) => {
+
+    const transformedUnitDataPayload =  data
+
+    const red = 'P17_FF Cast Completed'
+    const tedex = 'P17 FF Cast Completed'
+
+    
+    const intercow = (x:string) => {
+
+      const z = x.split(' ')
+
+      const y = z.filter(item => (item[0] == ''))
+
+      return ('wow, done')
+    }
+
+    const what = intercow(red)
+
+
+    const interprete = (x:string) => {
+      
+
+      
+
+
+      const floorstokens = [
+        {
+          token:'GF',
+          meaning:'Ground Floor',
+          type:'floor',
+          role:'scope',
+          semanticTags: ['floor:ground', 'level:0', 'vertical:lowest'],
+          tags: ['structure', 'level', 'base']
+        },
+        {
+          token:'FF',
+          meaning:'First Floor',
+          type:'floor',
+          role:'scope',
+          semanticTags: ['floor:first', 'level:1', 'vertical:upper'],
+          tags: ['structure', 'level', 'upper']
+        },
+        {
+          token:'SF',
+          meaning:'Second Floor',
+          type:'floor',
+          role:'scope',
+          semanticTags: ['floor:second', 'level:2', 'vertical:upper'],
+          tags: ['structure', 'level', 'upper']
+        }
+       ]
+
+       const inventorytokens = [
+        {
+          token:'scaffolding',
+          meaning:'scaffolding',
+          type:'component',
+          role:'element',
+          semanticTags: ['inventory:temporary', 'safety:access', 'support:structural'],
+          tags: ['temporary', 'safety', 'support']
+         },
+         {
+          token:'props',
+          meaning:'acro props',
+          type:'component',
+          role:'element',
+          semanticTags: ['inventory:temporary', 'support:structural', 'equipment:support'],
+          tags: ['temporary', 'support', 'equipment']
+         }
+       ]
+
+       const buildingcomponentstokens = [
+         {
+           token:'gable',
+           meaning:'gable block',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:gable', 'structure:upper', 'material:block'],
+           tags: ['masonry', 'structural', 'upper']
+         },
+         {
+           token:'BW',
+           meaning:'block work',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:blockwork', 'material:block', 'structure:wall'],
+           tags: ['masonry', 'structural', 'wall']
+         },
+         {
+           token:'col',
+           meaning:'column',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:column', 'structure:vertical', 'material:concrete'],
+           tags: ['structural', 'vertical', 'concrete']
+         },
+         {
+          token:'lin',
+          meaning:'lintel',
+          type:'component',
+          role:'element',
+          semanticTags: ['component:lintel', 'structure:horizontal', 'material:concrete'],
+          tags: ['structural', 'horizontal', 'concrete']
+         },
+         {
+           token:'slab',
+           meaning:'slab',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:slab', 'structure:horizontal', 'material:concrete'],
+           tags: ['structural', 'horizontal', 'concrete', 'surface']
+         },
+         {
+           token:'roof',
+           meaning:'roofing',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:roof', 'structure:top', 'protection:weather'],
+           tags: ['structural', 'finishing', 'weather-protection']
+         },
+         {
+           token:'beam',
+           meaning:'beam',
+           type:'component',
+           role:'element',
+           semanticTags: ['component:beam', 'structure:horizontal', 'material:concrete'],
+           tags: ['structural', 'horizontal', 'concrete']
+         }
+       ]
+
+       const statustokens = [
+        {
+          token:'done',
+          meaning:'completed',
+          type:'status',
+          role:'activity',
+          semanticTags: ['status:complete', 'progress:100', 'phase:end'],
+          tags: ['completion', 'finished', 'approved']
+        }
+       ]
+
+        const fundedtokens = [
+          {
+            token:'$f',
+            meaning:'funded',
+            type:'funded',
+            role:'status',
+            semanticTags: ['funding:approved', 'financial:allocated', 'status:ready'],
+            tags: ['financial', 'approved', 'available']
+          },
+          {
+            token:'$af',
+            meaning:'awaiting funding',
+            type:'funded',
+            role:'status',
+            semanticTags: ['funding:pending', 'financial:waiting', 'status:blocked'],
+            tags: ['financial', 'pending', 'blocked']
+          }
+        ]
+
+       const structure = 'scope' + 'subject' + 'status' + 'progressIndicator' + 'notes'
+
+      const commonnWords = ['FF', 'BW', ]
+
+      
+    }
+
+    const stringx = [
+      "P17_FF Cast Completed",
+      'P11 Awaiting FUnding',
+      'P11 Joint inspection Date_2weeks',
+      "scaffolding done, gable_BW 90",
+      'FF_col done',
+      "funded FF BW x done",
+      ''
+    ]
+    
+
+    return (transformedUnitDataPayload)
+  }
 
 interface Irisks {
   level: 'low' | 'medium' | 'high',
@@ -160,7 +473,11 @@ type UnitContextType = {
   updateUnit: (id: string, patch: Partial<Unit>) => void;
   removeUnit: (id: string) => void;
   getUnit: (id: string) => Unit | undefined;
+  unitDataArray?: any[];
+  setunitDataArray?: React.Dispatch<React.SetStateAction<any[]>>;
 };
+
+
 
 const STORAGE_KEY = "units_data";
 
@@ -480,7 +797,9 @@ const Casting = [
 ]
 
 
+//MAIN DATA STATES
 
+const [unitDataArray, setunitDataArray] = React.useState<any[]>(unitsMockData);
 
   const [units, setUnits] = useState<Unit[]>(() => {
     try {
@@ -511,6 +830,8 @@ const Casting = [
       updateUnit,
       removeUnit,
       getUnit,
+      unitDataArray,
+      setunitDataArray,
   };
 
   return <UnitContext.Provider value={value}>{children}</UnitContext.Provider>;

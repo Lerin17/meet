@@ -41,6 +41,8 @@ const page = () => {
     virtualScrollValue,
     progressX,
     showUnitInfo,
+    isEditor,
+    setIsEditor,
   } = useHomeContext();
 
   const progress = virtualScrollValue / 400;
@@ -204,6 +206,14 @@ const page = () => {
       <motion.div className="items-center h-screen w-full flex flex-col ">
         <div className=" w-full flex justify-center ">
           <MetaInfo />
+          <div className="ml-4">
+            <button
+              onClick={() => setIsEditor((s) => !s)}
+              className="px-2 py-1 bg-gray-800 text-white rounded"
+            >
+              {isEditor ? "Exit Editor" : "Enter Editor"}
+            </button>
+          </div>
         </div>
 
         {/* <div className="border-b justify-start w-10/12 flex mt-4">
@@ -362,69 +372,28 @@ const page = () => {
                 nav
             </div> */}
 
-              <div className="lg:w-8/12 md:w-8/12 sm:w-full w-full  ">
+              <div className={` ${isEditor ? 'lg:w-7/12 md:w-7/12 sm:w-full w-full ' : 'lg:w-8/12 md:w-8/12 sm:w-full w-full '}  `}>
                 <div className="border-b text-stone-100">(001)</div>
 
                 {/* <Tiptap /> */}
 
                 <div className=" relative">
-                  {/* <div className="bg-gradient-to-t from-white to-stone-100 absolute bottom-0 z-20 w-full">
-                    xxe
-                  </div> */}
-                  <DocumentComponent />
+                  {isEditor ? (
+                    <Tiptap />
+                  ) : (
+                    <DocumentComponent />
+                  )}
                 </div>
               </div>
 
-              <div className="w-4/12 flex">
-              {/* start of first loader */}
-              {/* <motion.div
-              className=" overflow-hidden"
-              animate = {showUnitInfo ? {
-                display:'none '
-              }:{
-                display: 'block'
-              }}
 
-              transition={showUnitInfo ?{
-                delay:1
-              }:{
-                delay:1
-              }}
-              >
 
-              
+                {/* SPLIT SCREEN RIGHT SIDE */}
 
-                <motion.div
-                  className=""
-                  initial={{
-                    x:0
-                  }}
-                  animate={
-                    showUnitInfo ? {
-                      opacity: '0%',
-                      x: 100,
-                      // scaleX:'75%'
-                    }:{
-                      opacity:'100%',
-                      x:0
-                    }
+              <div className={`${isEditor ? 'w-8/12' : 'w-6/12'} flex border`}>
 
-                    
-                  }
-
-                  transition={{
-                    ease:'easeInOut',
-                    delay:3
-                  }}
-                >
-                  <UnitInfo />
-                </motion.div>
-              </motion.div> */}
-              {/* end of first loader */}
-
-              {/* second One */}
           <motion.div
-              className=" overflow-hidden"
+              className=" overflow-hidden w-full"
               animate = {showUnitInfo ? {
                 display:'none '
               }:{
@@ -438,7 +407,10 @@ const page = () => {
 
               
 
-                <motion.div
+              {isEditor ? <div className="w-full">
+                       <DocumentComponent />
+                </div>:
+ <motion.div
                   className=""
                   initial={{
                     x:0
@@ -461,6 +433,9 @@ const page = () => {
                 >
                   <UnitInfo />
                 </motion.div>
+              }
+
+               
               </motion.div>
               </div>
               

@@ -1,0 +1,369 @@
+[
+	{
+		"_id": "unit-j01",
+		"_type": "unit",
+		"unitId": "J01",
+		"identity": {
+			"name": "J01",
+			"buildingType": [
+				{
+					"_key": "j-series",
+					"code": "J",
+					"label": "3_Bedroom_terrace_duplex"
+				}
+			],
+			"numberOfBedrooms": 3,
+			"location": {
+				"city": "Abuja",
+				"district": "Kabusa",
+				"estate": "SunnyVale Gardens",
+				"axis": "Road 21"
+			}
+		},
+		"state": {
+			"currentPhase": "Completed",
+			"constructionStatus": "Completed",
+			"isCompleted": true,
+			"fundedStatus": "funded",
+			"lastUpdated": "2026-01-19",
+			"dataVerification": "system_assumed"
+		},
+		"team": {
+			"supervisingEngineer": "",
+			"projectManager": ""
+		},
+		"housesCount": 1,
+		"houses": [
+			{
+				"houseCode": "A",
+				"phase": "Completed",
+				"percentComplete": 100,
+				"isCompleted": true,
+				"dataVerification": "system_assumed"
+			}
+		]
+	},
+
+	{
+		"_id": "unit-j105",
+		"_type": "unit",
+		"unitId": "J105",
+		"legacy": {
+			"source": "manual",
+			"ingestionDate": "2026-02-11",
+			"confidence": "high"
+		},
+		"dataQuality": {
+			"missingFields": []
+		},
+		"excludedDates": ["2026-03-01"],
+		"requiresReview": false,
+		"notes": ["Initial dummy record"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": {
+			"name": "J105",
+			"buildingType": [
+				{
+					"_key": "bt-j105",
+					"code": "J",
+					"label": "3_Bedroom_terrace_duplex"
+				}
+			],
+			"numberOfBedrooms": 3,
+			"location": {
+				"city": "Abuja",
+				"district": "Kabusa",
+				"estate": "SunnyVale Gardens",
+				"axis": "Axis B"
+			}
+		},
+		"state": {
+			"currentPhase": "FirstFloor_BlockWork_Above_Lintel ABC",
+			"constructionStatus": "In Progress",
+			"occupancyStatus": "Not Occupied",
+			"lastUpdated": "2026-02-9",
+			"deliveryStop": "",
+			"progress": {
+				"Description": "FirstFloor_BlockWork_Above_Lintel 1C",
+				"ProgressValue": [0, 0, 35, 35, 35],
+				"overallProgressPercentage": 35
+			},
+			"isCompleted": false,
+			"fundedStatus": "partially_funded",
+			"lastUpdatedAt": "2026-02-11",
+			"nextMilestone": {
+				"milestoneName": "First Floor Slab",
+				"expectedCompletionDate": "2026-04-01"
+			},
+			"previousStates": [
+				{
+					"week": "6",
+					"phaseName": "Foundation",
+					"statusSummary": "Foundations completed",
+					"progressPercentage": 20,
+					"comments": ["Foundation poured"]
+				}
+			],
+			"team": {
+				"supervisingEngineer": "Arc Chinedu",
+				"projectManager": "Engr Felix",
+				"siteSupervisor": "Supervisor A",
+				"contractor": "Looku Olabirin"
+			}
+		},
+		"housesCount": 2,
+		"houses": [
+			{
+				"houseCode": "A",
+				"buildingType": "3_Bedroom_terrace_duplex",
+				"lastAction": "GF slab cast",
+				"currentProgress": 35,
+				"phase": "Ground_Floor",
+				"percentComplete": 35,
+				"isCompleted": false,
+				"deliveryStop": ""
+			},
+			{
+				"houseCode": "B",
+				"buildingType": "3_Bedroom_terrace_duplex",
+				"lastAction": "Footings",
+				"currentProgress": 10,
+				"phase": "Foundation",
+				"percentComplete": 10,
+				"isCompleted": false,
+				"deliveryStop": ""
+			},
+			{
+				"houseCode": "C",
+				"buildingType": "3_Bedroom_terrace_duplex",
+				"lastAction": "Footings",
+				"currentProgress": 10,
+				"phase": "Foundation",
+				"percentComplete": 10,
+				"isCompleted": false,
+				"deliveryStop": ""
+			},
+			{
+				"houseCode": "D",
+				"buildingType": "3_Bedroom_terrace_duplex",
+				"lastAction": "Footings",
+				"currentProgress": 10,
+				"phase": "Foundation",
+				"percentComplete": 10,
+				"isCompleted": false,
+				"deliveryStop": ""
+			},
+			{
+				"houseCode": "E",
+				"buildingType": "3_Bedroom_terrace_duplex",
+				"lastAction": "Footings",
+				"currentProgress": 10,
+				"phase": "Foundation",
+				"percentComplete": 10,
+				"isCompleted": false,
+				"deliveryStop": ""
+			}
+		],
+		"events": [
+			{
+				"title": "Site Setup",
+				"date": "2026-01-15",
+				"details": "Temporary site setup and security installed"
+			}
+		],
+		"risks": [
+			{
+				"level": "medium",
+				"type": "weather",
+				"note": "Rainy season may delay works",
+				"dateIdentified": "2026-02-01"
+			}
+		]
+	},
+
+	{
+		"_id": "unit-j105-v2",
+		"_type": "unit",
+		"unitId": "J105",
+		"created": "2026-02-12",
+		"identity": {
+			"name": "J105",
+			"location": {
+				"axis": "Road 21"
+			}
+		},
+		"housesCount": 7,
+		"houses": [
+			{ "houseCode": "A", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "B", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "C", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "D", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "E", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "F", "percentComplete": 0, "isCompleted": false },
+			{ "houseCode": "G", "percentComplete": 0, "isCompleted": false }
+		]
+	},
+
+	{
+		"_id": "unit-j105-v2",
+		"_type": "unit",
+		"unitId": "J105",
+		"legacy": {
+			"source": "manual",
+			"ingestionDate": "2026-02-12",
+			"confidence": "high"
+		},
+		"dataQuality": { "missingFields": [] },
+		"excludedDates": [],
+		"requiresReview": false,
+		"notes": ["Created to match unit-j105 structure"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": {
+			"name": "J105",
+			"buildingType": [
+				{ "_key": "bt-j105", "code": "J", "label": "3_Bedroom_terrace_duplex" }
+			],
+			"numberOfBedrooms": 3,
+			"location": { "city": "Abuja", "district": "Kabusa", "estate": "SunnyVale Gardens", "axis": "Road 21" }
+		},
+		"state": {
+			"currentPhase": "Not Started",
+			"constructionStatus": "Not Started",
+			"occupancyStatus": "Not Occupied",
+			"lastUpdated": "2026-02-12",
+			"deliveryStop": "",
+			"progress": { "Description": "", "ProgressValue": [0], "overallProgressPercentage": 0 },
+			"isCompleted": false,
+			"fundedStatus": "unfunded",
+			"lastUpdatedAt": "2026-02-12",
+			"nextMilestone": {},
+			"previousStates": [],
+			"team": { "supervisingEngineer": "", "projectManager": "", "siteSupervisor": "", "contractor": "" }
+		},
+		"housesCount": 7,
+		"houses": [
+			{ "houseCode": "A", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "B", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "C", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "D", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "E", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "F", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "G", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" }
+		],
+		"events": [],
+		"risks": []
+	},
+
+
+	{
+		"_id": "unit-j05",
+		"_type": "unit",
+		"unitId": "J05",
+		"legacy": { "source": "manual", "ingestionDate": "2026-02-12", "confidence": "high" },
+		"dataQuality": { "missingFields": [] },
+		"excludedDates": [],
+		"requiresReview": false,
+		"notes": ["Created to match unit-j105 structure"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": { "name": "J05", "buildingType": [{ "_key": "bt-j05", "code": "J", "label": "3_Bedroom_terrace_duplex" }], "numberOfBedrooms": 3, "location": { "city": "Abuja", "district": "Kabusa", "estate": "SunnyVale Gardens", "axis": "Road 39" } },
+		"state": { "currentPhase": "Not Started", "constructionStatus": "Not Started", "occupancyStatus": "Not Occupied", "lastUpdated": "2026-02-12", "deliveryStop": "", "progress": { "Description": "", "ProgressValue": [0], "overallProgressPercentage": 0 }, "isCompleted": false, "fundedStatus": "unfunded", "lastUpdatedAt": "2026-02-12", "nextMilestone": {}, "previousStates": [], "team": { "supervisingEngineer": "", "projectManager": "", "siteSupervisor": "", "contractor": "" } },
+		"housesCount": 6,
+		"houses": [
+			{ "houseCode": "A", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "B", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "C", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "D", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "E", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "F", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" }
+		],
+		"events": [],
+		"risks": []
+	},
+
+
+	{
+		"_id": "unit-j104",
+		"_type": "unit",
+		"unitId": "J104",
+		"legacy": { "source": "manual", "ingestionDate": "2026-02-12", "confidence": "high" },
+		"dataQuality": { "missingFields": [] },
+		"excludedDates": [],
+		"requiresReview": false,
+		"notes": ["Created to match unit-j105 structure"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": { "name": "J104", "buildingType": [{ "_key": "bt-j104", "code": "J", "label": "3_Bedroom_terrace_duplex" }], "numberOfBedrooms": 3, "location": { "city": "Abuja", "district": "Kabusa", "estate": "SunnyVale Gardens", "axis": "Material Gate" } },
+		"state": { "currentPhase": "Not Started", "constructionStatus": "Not Started", "occupancyStatus": "Not Occupied", "lastUpdated": "2026-02-12", "deliveryStop": "", "progress": { "Description": "", "ProgressValue": [0], "overallProgressPercentage": 0 }, "isCompleted": false, "fundedStatus": "unfunded", "lastUpdatedAt": "2026-02-12", "nextMilestone": {}, "previousStates": [], "team": { "supervisingEngineer": "", "projectManager": "", "siteSupervisor": "", "contractor": "" } },
+		"housesCount": 9,
+		"houses": [
+			{ "houseCode": "A", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "B", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "C", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "D", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "E", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "F", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "G", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "H", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "I", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" }
+		],
+		"events": [],
+		"risks": []
+	},
+
+
+	{
+		"_id": "unit-j91",
+		"_type": "unit",
+		"unitId": "J91",
+		"legacy": { "source": "manual", "ingestionDate": "2026-02-12", "confidence": "high" },
+		"dataQuality": { "missingFields": [] },
+		"excludedDates": [],
+		"requiresReview": false,
+		"notes": ["Created to match unit-j105 structure"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": { "name": "J91", "buildingType": [{ "_key": "bt-j91", "code": "J", "label": "3_Bedroom_terrace_duplex" }], "numberOfBedrooms": 3, "location": { "city": "Abuja", "district": "Kabusa", "estate": "SunnyVale Gardens", "axis": "Road 11" } },
+		"state": { "currentPhase": "Not Started", "constructionStatus": "Not Started", "occupancyStatus": "Not Occupied", "lastUpdated": "2026-02-12", "deliveryStop": "", "progress": { "Description": "", "ProgressValue": [0], "overallProgressPercentage": 0 }, "isCompleted": false, "fundedStatus": "unfunded", "lastUpdatedAt": "2026-02-12", "nextMilestone": {}, "previousStates": [], "team": { "supervisingEngineer": "", "projectManager": "", "siteSupervisor": "", "contractor": "" } },
+		"housesCount": 5,
+		"houses": [
+			{ "houseCode": "A", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "B", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "C", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "D", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "E", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" }
+		],
+		"events": [],
+		"risks": []
+	},
+
+
+	{
+		"_id": "unit-p06",
+		"_type": "unit",
+		"unitId": "P06",
+		"legacy": { "source": "manual", "ingestionDate": "2026-02-12", "confidence": "high" },
+		"dataQuality": { "missingFields": [] },
+		"excludedDates": [],
+		"requiresReview": false,
+		"notes": ["Created to match unit-j105 structure"],
+		"isJointVenture": false,
+		"JointVenturePartners": [],
+		"identity": { "name": "P06", "buildingType": [{ "_key": "bt-p06", "code": "P", "label": "3_Bedroom_terrace_duplex" }], "numberOfBedrooms": 3, "location": { "city": "Abuja", "district": "Kabusa", "estate": "SunnyVale Gardens", "axis": "P Line_Road 47" } },
+		"state": { "currentPhase": "Not Started", "constructionStatus": "Not Started", "occupancyStatus": "Not Occupied", "lastUpdated": "2026-02-12", "deliveryStop": "", "progress": { "Description": "", "ProgressValue": [0], "overallProgressPercentage": 0 }, "isCompleted": false, "fundedStatus": "unfunded", "lastUpdatedAt": "2026-02-12", "nextMilestone": {}, "previousStates": [], "team": { "supervisingEngineer": "", "projectManager": "", "siteSupervisor": "", "contractor": "" } },
+		"housesCount": 7,
+		"houses": [
+			{ "houseCode": "A", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "B", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "C", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "D", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "E", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "F", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" },
+			{ "houseCode": "G", "buildingType": "3_Bedroom_terrace_duplex", "lastAction": "", "currentProgress": 0, "phase": "Not Started", "percentComplete": 0, "isCompleted": false, "deliveryStop": "" }
+		],
+		"events": [],
+		"risks": []
+	}
+]

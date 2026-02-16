@@ -4,6 +4,7 @@ import "./globals.css";
 import { LoginProvider } from "../Context/LoginContext";
 import { HomeProvider } from "@/Context/HomeContext";
 import { UnitProvider } from "@/Context/UnitContext";
+import Nav from "./Components/Layout/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,10 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LoginProvider>
           <UnitProvider>
-            <HomeProvider>{children}</HomeProvider>
+            <HomeProvider>
+              <Nav/>
+              {children}
+            </HomeProvider>
           </UnitProvider>
         </LoginProvider>
       </body>

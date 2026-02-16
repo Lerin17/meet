@@ -12,10 +12,14 @@ const Tiptap = () => {
     immediatelyRender: false,
   })
 
+
+  
+
+
   return (
     <div className='h-[500px] overflow-auto'>
   <EditorContent
-  
+  onChange={() => {console.log(editor, 'editor')}}
   className=''
   editor={editor} />
     </div>

@@ -37,9 +37,11 @@ export const unitType = defineType({
       ],
     }),
 
-    defineField({ name: 'excludedDates', title: 'Excluded Dates', type: 'array', of: [defineArrayMember({ type: 'date' })] }),
+    defineField({ name: 'excludedDates', title: 'Excluded Dates', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
     defineField({ name: 'requiresReview', title: 'Requires Review', type: 'boolean' }),
     defineField({ name: 'notes', title: 'Notes', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
+    defineField({ name: 'isJointVenture', title: 'Is Joint Venture', type: 'boolean' }),
+    defineField({ name: 'JointVenturePartners', title: 'Joint Venture Partners', type: 'array', of: [defineArrayMember({ type: 'string' })] }),
 
     defineField({
       name: 'identity',
@@ -102,14 +104,18 @@ export const unitType = defineType({
         defineField({ name: 'occupancyStatus', title: 'Occupancy Status', type: 'string' }),
         defineField({ name: 'lastUpdated', title: 'Last Updated', type: 'date' }),
         defineField({
+          name: 'deliveryStop',
+          title: 'Delivery Stop',
+          type: 'string',
+        }),
+        defineField({
           name: 'progress',
           title: 'Progress',
           type: 'object',
           fields: [
-            defineField({ name: 'currentPhase', title: 'Current Phase', type: 'string' }),
+            defineField({ name: 'Description', title: 'Description', type: 'string' }),
             defineField({ name: 'ProgressValue', title: 'Progress Value', type: 'number' }),
             defineField({ name: 'overallProgressPercentage', title: 'Overall Progress %', type: 'number' }),
-            defineField({ name: 'deliveryStop', title: 'Delivery Stop', type: 'string' }),
           ],
         }),
         defineField({ name: 'isCompleted', title: 'Is Completed', type: 'boolean' }),

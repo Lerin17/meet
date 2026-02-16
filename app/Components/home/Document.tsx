@@ -38,7 +38,7 @@ return
 
 
   return (
-    <div className="h-[800px] overflow-auto bg-white">
+    <div className="h-[800px] overflow-auto bg-white w-full">
       <div className="   flex flex-col p-4 m-4 text-[E2F1F8] font-mill">
         <div className="text-2xl flex font-bold"> 
           
