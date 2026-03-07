@@ -149,6 +149,21 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo/Archivo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creato';
+  src: url('/fonts/creato_display/CreatoDisplay-Light.otf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -197,6 +212,14 @@ code, pre, kbd {
   font-family: 'Diatype', system-ui, sans-serif;
 }
 
+.font-archivo {
+  font-family: 'Archivo', system-ui, sans-serif;
+}
+
+.font-creato {
+  font-family: 'Creato', system-ui, sans-serif;
+}
+
 /* Font Weight Classes for Inter */
 .font-inter-light { font-weight: 300; }
 .font-inter-normal { font-weight: 400; }
@@ -210,3 +233,13 @@ code, pre, kbd {
 .font-epilogue-semibold { font-weight: 600; }
 .font-epilogue-bold { font-weight: 700; }
 .font-epilogue-extrabold { font-weight: 800; }
+
+.font-archivo-normal { font-weight: 400; }
+.font-archivo-medium { font-weight: 500; }
+.font-archivo-semibold { font-weight: 600; }
+.font-archivo-bold { font-weight: 700; }
+.font-archivo-extrabold { font-weight: 800; }
+
+.font-creato-thin { font-weight: 400; }
+.font-creato-medium { font-weight: 500; }
+.font-creato-semibold { font-weight: 600; }
