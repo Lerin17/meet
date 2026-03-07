@@ -78,6 +78,7 @@ export default function DropzoneUploader() {
         formData.append('file', file);
         formData.append('fileName', file.name);
         formData.append('fileType', file.type);
+        formData.append('folderId', process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID || '');
 
         console.log("Uploading file:", file.name, file.size, file.type);
 
@@ -93,6 +94,8 @@ export default function DropzoneUploader() {
         }
 
         const result: UploadResponse = await response.json();
+
+        console.log("Upload response for file:", result);
 
         // Update success status
         setUploads((prev) => {
