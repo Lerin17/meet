@@ -164,6 +164,14 @@
   font-style: normal;
   font-display: swap;}
 
+
+  @font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica Neue/HelveticaNeue-Thin.otf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -220,6 +228,10 @@ code, pre, kbd {
   font-family: 'Creato', system-ui, sans-serif;
 }
 
+.font-helvetica{
+  font-family: 'Helvetica', monospace;
+}
+
 /* Font Weight Classes for Inter */
 .font-inter-light { font-weight: 300; }
 .font-inter-normal { font-weight: 400; }
@@ -243,3 +255,9 @@ code, pre, kbd {
 .font-creato-thin { font-weight: 400; }
 .font-creato-medium { font-weight: 500; }
 .font-creato-semibold { font-weight: 600; }
+
+
+.gradienty {
+  background: #FFFFFF;
+background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 100%, rgba(235, 235, 235, 1) 100%);
+}

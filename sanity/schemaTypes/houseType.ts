@@ -14,6 +14,11 @@ export const houseType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name:'description',
+      title:'Description',
+      type:'text'
+    }),
+    defineField({
       name: 'noBedrooms',
       title: 'Number of Bedrooms',
       type: 'number',
@@ -71,53 +76,53 @@ export const houseType = defineType({
               type: 'number',
               validation: (rule) => rule.required().min(0),
             }),
-            defineField({
-              name: 'noofWindows',
-              title: 'Number of Windows',
-              type: 'number',
-            }),
-            defineField({
-              name: 'noofDoors',
-              title: 'Number of Doors',
-              type: 'number',
-            }),
-            defineField({
-              name: 'bedrooms',
-              title: 'Bedrooms',
-              type: 'array',
-              of: [
-                defineArrayMember({
-                  type: 'object',
-                  name: 'bedroom',
-                  fields: [
-                    defineField({
-                      name: 'bedroomTitle',
-                      title: 'Bedroom Title',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'floorArea',
-                      title: 'Floor Area (sqm)',
-                      type: 'number',
-                      validation: (rule) => rule.required().min(0),
-                    }),
-                    defineField({
-                      name: 'noofWindows',
-                      title: 'Number of Windows',
-                      type: 'number',
-                      validation: (rule) => rule.required().min(0),
-                    }),
-                    defineField({
-                      name: 'noBathroom',
-                      title: 'Number of Bathrooms',
-                      type: 'number',
-                      validation: (rule) => rule.required().min(0),
-                    }),
-                  ],
-                }),
-              ],
-            }),
+            // defineField({
+            //   name: 'noofWindows',
+            //   title: 'Number of Windows',
+            //   type: 'number',
+            // }),
+            // defineField({
+            //   name: 'noofDoors',
+            //   title: 'Number of Doors',
+            //   type: 'number',
+            // }),
+            // defineField({
+            //   name: 'bedrooms',
+            //   title: 'Bedrooms',
+            //   type: 'array',
+            //   of: [
+            //     defineArrayMember({
+            //       type: 'object',
+            //       name: 'bedroom',
+            //       fields: [
+            //         defineField({
+            //           name: 'bedroomTitle',
+            //           title: 'Bedroom Title',
+            //           type: 'string',
+            //           validation: (rule) => rule.required(),
+            //         }),
+            //         defineField({
+            //           name: 'floorArea',
+            //           title: 'Floor Area (sqm)',
+            //           type: 'number',
+            //           validation: (rule) => rule.required().min(0),
+            //         }),
+            //         // defineField({
+            //         //   name: 'noofWindows',
+            //         //   title: 'Number of Windows',
+            //         //   type: 'number',
+            //         //   validation: (rule) => rule.required().min(0),
+            //         // }),
+            //         // defineField({
+            //         //   name: 'noBathroom',
+            //         //   title: 'Number of Bathrooms',
+            //         //   type: 'number',
+            //         //   validation: (rule) => rule.required().min(0),
+            //         // }),
+            //       ],
+            //     }),
+            //   ],
+            // }),
           ],
         }),
       ],
@@ -129,23 +134,27 @@ export const houseType = defineType({
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
+          type: 'object',
+          name: 'asset',
           fields: [
-         
             defineField({
               name: 'type',
-              type: 'string',
               title: 'Asset Type',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Image', value: 'image' },
+                  { title: 'Video', value: 'video' },
+                ],
+              },
+              validation: (rule) => rule.required(),
               initialValue: 'image',
-              readOnly: true,
             }),
             defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative Text',
+              name: 'url',
+              title: 'Asset URL',
+              type: 'url',
+              validation: (rule) => rule.required(),
             }),
           ],
         }),

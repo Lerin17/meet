@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+'use client'
+
+import React, { createContext , useContext, useState, ReactNode } from 'react';
 import {client} from '../lib/sanity';
 
 export type HouseType = 'apartment' | 'house' | 'condo' | 'townhouse';
@@ -40,8 +42,14 @@ export interface IHouseType {
     Maidroom:boolean,
     floors:IFloor[],
     assets:IAsset[],
-    CodeName:string
+    ID:string
     
+}
+
+export interface SimpleHouse {
+    imageSrc: string;
+    title: string;
+    description: string;
 }
 
 // Default set of houses to seed contexts or UI lists
@@ -51,7 +59,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 4,
         NoGuestBedrooms: 1,
         Maidroom: true,
-        CodeName: 'DD4B',
+        ID: 'DD4B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 
@@ -87,7 +95,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 3,
         NoGuestBedrooms: 0,
         Maidroom: false,
-        CodeName: 'TD3B',
+        ID: 'TD3B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 
@@ -119,7 +127,7 @@ export const defaultHouses: IHouseType[] = [
         NoBedrooms: 2,
         NoGuestBedrooms: 0,
         Maidroom: false,
-        CodeName: 'AP2B',
+        ID: 'AP2B',
         floors: [
             { 
                 FloorLevel: 'groundfloor', 
@@ -150,7 +158,8 @@ export const defaultHouses: IHouseType[] = [
 interface HouseUnitContextType {
     houseType: HouseType;
     setHouseType: (type: HouseType) => void;
-
+    selectedHouse: SimpleHouse | null;
+    setSelectedHouse: (house: SimpleHouse | null) => void;
 }
 
 
@@ -160,11 +169,16 @@ const HouseUnitContext = createContext<HouseUnitContextType | undefined>(undefin
 export const HouseUnitProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     const [houseType, setHouseType] = useState<HouseType>('house');
+    const [selectedHouse, setSelectedHouse] = useState<SimpleHouse | null>(null);
 
+    const getHouseTypeData = (item:any) => {
+        
+
+    }   
 
 
     return (
-        <HouseUnitContext.Provider value={{ houseType, setHouseType }}>
+        <HouseUnitContext.Provider value={{ houseType, setHouseType, selectedHouse, setSelectedHouse }}>
             {children}
         </HouseUnitContext.Provider>
     );
