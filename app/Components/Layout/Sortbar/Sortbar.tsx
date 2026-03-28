@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Sortbar = () => {
+  // bg-[#1E359C]
   return (
     <div className='h-[29px] font-helvetica text-sm font-bold'>
       <div className='flex'>
@@ -8,7 +9,7 @@ const Sortbar = () => {
             SORT BY
         </div>
 
-        <div className='bg-[#1E359C] h-[29px] px-8 py-2 flex items-center justify-center'>
+        <div className=' gradientblack h-[29px] px-8 py-2 flex items-center justify-center'>
             PROJECTS
         </div>
       </div>

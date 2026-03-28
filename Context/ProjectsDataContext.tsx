@@ -1,6 +1,7 @@
 'use client'
 
 import { client } from '@/lib/sanity';
+import { p } from 'framer-motion/client';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { set } from 'sanity';
 
@@ -30,6 +31,7 @@ export interface ProjectsContextValue {
   addProject: (project: Project) => void;
   updateProject: (projectId: string, update: Partial<Project>) => void;
   removeProject: (projectId: string) => void;
+  projectHouseData:any
 }
 
 const defaultProjects: Project[] = [
@@ -40,6 +42,7 @@ const defaultProjects: Project[] = [
     description: 'Build a sample project structure for workspace onboarding.',
     status: 'active',
     startDate: new Date().toISOString(),
+
   },
 ];
 
@@ -49,20 +52,48 @@ export function ProjectsProvider({ children }: { children: ReactNode }) {
 
   const [projects, setProjects] = useState<Project[]>(defaultProjects);
   const [selectedProject, setSelectedProject] = useState<Project | null>(defaultProjects[0] ?? null);
-  const [ProjectData, setProjectData] = React.useState();
+  //need to change this to a more specific type once we know the structure of the data coming from sanity
+
+  //Hold Sanity data for houses in the project, to be used in the HouseUnitContext
+  const [projectHouseData, setprojectHouseData] = React.useState<any[]>([]);
+
+  // interface IprojectData {
+  //   HouseData:any,
+  // }
 
   const addProject = (project: Project) => {
     setProjects((state) => [...state, project]);
     setSelectedProject(project);
   };
 
+
+
+
+  
+  // Fetch projects from Sanity and update state i.e HOUSEDATA
+
     const getStaticHouseData = async () => {
 const data = await client.fetch(`*[_type == "house"]`)
-setProjectData(data)
+
+  setprojectHouseData(data)
+
 console.log('Fetched posts in HouseUnitProvider: Sanity Data', data)
 }
 
-getStaticHouseData()
+React.useEffect(() => {
+
+  if(projectHouseData.length == 0){
+    getStaticHouseData()
+  }else {
+    console.log('HouseUnitProvider: Using existing projectHouseData', projectHouseData)
+  }
+}, [projectHouseData]);
+
+  // Fetch projects from Sanity and update state i.e HOUSEDATA
+
+
+
+// getStaticHouseData()
 
   const updateProject = (projectId: string, update: Partial<Project>) => {
     setProjects((state) =>
@@ -83,7 +114,7 @@ getStaticHouseData()
 
   return (
     <ProjectsContext.Provider
-      value={{ projects, selectedProject, setSelectedProject, addProject, updateProject, removeProject }}
+      value={{ projects, selectedProject, setSelectedProject, addProject, updateProject, removeProject, projectHouseData }}
     >
       {children}
     </ProjectsContext.Provider>

@@ -1,7 +1,9 @@
 'use client'
 
-import React, { createContext , useContext, useState, ReactNode } from 'react';
+import React, { createContext , useContext, useState, ReactNode, use } from 'react';
 import {client} from '../lib/sanity';
+import { useProject } from 'sanity';
+import { useProjects } from './ProjectsDataContext';
 
 export type HouseType = 'apartment' | 'house' | 'condo' | 'townhouse';
 
@@ -158,8 +160,8 @@ export const defaultHouses: IHouseType[] = [
 interface HouseUnitContextType {
     houseType: HouseType;
     setHouseType: (type: HouseType) => void;
-    selectedHouse: SimpleHouse | null;
-    setSelectedHouse: (house: SimpleHouse | null) => void;
+    selectedHouse: any;
+    setSelectedHouse: (house:any) => void;
 }
 
 
@@ -168,12 +170,15 @@ const HouseUnitContext = createContext<HouseUnitContextType | undefined>(undefin
 
 export const HouseUnitProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
+
+
+    const {projectHouseData} = useProjects()
+
     const [houseType, setHouseType] = useState<HouseType>('house');
     const [selectedHouse, setSelectedHouse] = useState<SimpleHouse | null>(null);
 
-    const getHouseTypeData = (item:any) => {
-        
-
+    const getSelectedHouse = (index:any) => {
+        return projectHouseData.filter((item:any) => item.code == index)
     }   
 
 

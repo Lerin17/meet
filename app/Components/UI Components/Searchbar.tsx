@@ -4,7 +4,7 @@ const SearchIcon = () => (<svg width="24" height="24" xmlns="http://www.w3.org/2
 
 const Searchbar = () => {
   return (
-    <div className=' h-[32px]  w-[380px] mx-4 rounded-full bg-[#E5E5E5] flex items-center'>
+    <div className=' h-[31px]  w-[380px] mx-4 rounded-full bg-[#E5E5E5] flex items-center'>
        
                         <div className ='w-full ml-3'>
                 <input 

@@ -4,8 +4,9 @@ import "./globals.css";
 import { LoginProvider } from "../Context/LoginContext";
 import { HomeProvider } from "@/Context/HomeContext";
 import { UnitProvider } from "@/Context/UnitContext";
+import { UtilityProvider } from "@/Context/UtilityContext";
 import { HouseUnitProvider } from "@/Context/HouseUnitContext";
-import { ProjectsProvider } from "@/Context/ProjectsContext";
+import { ProjectsProvider } from "@/Context/ProjectsDataContext";
 import Nav from "./Components/Layout/Navbar/Nav";
 
 
@@ -32,18 +33,20 @@ export default function RootLayout({
   return (
     <html >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <LoginProvider>
-          <ProjectsProvider>
-            <UnitProvider>
-              <HomeProvider>
-                <HouseUnitProvider>
-                  <Nav />
-                  {children}
-                </HouseUnitProvider>
-              </HomeProvider>
-            </UnitProvider>
-          </ProjectsProvider>
-        </LoginProvider>
+        <UtilityProvider>
+          <LoginProvider>
+            <ProjectsProvider>
+              <UnitProvider>
+                <HomeProvider>
+                  <HouseUnitProvider>
+                    <Nav />
+                    {children}
+                  </HouseUnitProvider>
+                </HomeProvider>
+              </UnitProvider>
+            </ProjectsProvider>
+          </LoginProvider>
+        </UtilityProvider>
       </body>
     </html>
   );
