@@ -21,7 +21,7 @@ const Nav = () => {
 
   return (
     <div
-      className={`w-full bg-white fixed top-0 left-0 z-50 flex flex-col ${routePath === "/HouseUnit" ? "items-start border-b border-transparent" : "items-center border-black border-b"}  justify-center`}
+      className={`w-full bg-white fixed top-0 left-0 z-50 flex flex-col ${routePath === "/HouseUnit" ? "items-start border-b border-transparent" : "items-center border-black border-b"}  justify-center ${routePath === "/Upload" ? "hidden" : ""}`}
       style={{
         height: `${componentScrollY < 10 && routePath === "/homepage" ? 65 : 40}px`,
         transition: "height 0.25s ease-in-out",

@@ -8,6 +8,7 @@ import { UtilityProvider } from "@/Context/UtilityContext";
 import { HouseUnitProvider } from "@/Context/HouseUnitContext";
 import { ProjectsProvider } from "@/Context/ProjectsDataContext";
 import Nav from "./Components/Layout/Navbar/Nav";
+import Uploadbar from "./Components/Layout/UploadComp/Uploadbar";
 
 
 const geistSans = Geist({
@@ -40,6 +41,7 @@ export default function RootLayout({
                 <HomeProvider>
                   <HouseUnitProvider>
                     <Nav />
+                    <Uploadbar />
                     {children}
                   </HouseUnitProvider>
                 </HomeProvider>

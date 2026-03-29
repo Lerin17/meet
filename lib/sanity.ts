@@ -13,6 +13,10 @@ export async function getPosts() {
   return client.fetch(`*[_type == "post"]`)
 }
 
+export async function getHouseType(){
+   return client.fetch(`*[_type == "house"]`)
+}
+
 export async function getPost(slug: string) {
   return client.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug })
 }

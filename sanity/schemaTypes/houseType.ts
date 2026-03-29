@@ -156,6 +156,17 @@ export const houseType = defineType({
               type: 'url',
               validation: (rule) => rule.required(),
             }),
+
+            defineField({
+              name:'width',
+              title:'Width',
+              type:'number'
+            }),
+            defineField({
+              name:'height',
+              title:'Height',
+              type:'number'
+            })
           ],
         }),
       ],

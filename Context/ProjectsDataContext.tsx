@@ -16,12 +16,19 @@ export interface Project {
   description?: string;
   status: ProjectStatus;
   startDate?: string;
-  houseUnitsinProject?: [string]; // Array of HouseUnit IDs associated with this project
+  houseUnitsinProject: string[]; 
+  axisinProject?: string[];
+  // Array of HouseUnit IDs associated with this project
 }
 
-
-
-  
+export interface MediaUploadData {
+  tags: string[];
+  ProjectLocation: string;
+  projectLocation: string;
+  projectName: string;
+  ProjectState: string;
+  ProjectAxis: string;
+}
 
 
 export interface ProjectsContextValue {
@@ -31,7 +38,19 @@ export interface ProjectsContextValue {
   addProject: (project: Project) => void;
   updateProject: (projectId: string, update: Partial<Project>) => void;
   removeProject: (projectId: string) => void;
-  projectHouseData:any
+  projectHouseData: any;
+  mediaUploadData: MediaUploadData;
+  setMediaUploadData: React.Dispatch<React.SetStateAction<MediaUploadData>>;
+  updateMediaUploadSelection: (item: {
+    projectAxis?: string;
+    projectName?: string;
+    projectLocation?: string;
+  }) => void;
+  allProjectStates: string[];
+  allProjectAxis: string[];
+  allProjectLocationsinStates: string[];
+  allProjectNames: string[];
+  allProjectHouseTypes: string[];
 }
 
 const defaultProjects: Project[] = [
@@ -40,6 +59,7 @@ const defaultProjects: Project[] = [
     location: 'Lagos, Nigeria',
     name: 'Initial Concept House',
     description: 'Build a sample project structure for workspace onboarding.',
+    houseUnitsinProject: ['houseunit-1', 'houseunit-2'],
     status: 'active',
     startDate: new Date().toISOString(),
 
@@ -56,7 +76,29 @@ export function ProjectsProvider({ children }: { children: ReactNode }) {
 
   //Hold Sanity data for houses in the project, to be used in the HouseUnitContext
   const [projectHouseData, setprojectHouseData] = React.useState<any[]>([]);
+  const [mediaUploadData, setMediaUploadData] = useState<MediaUploadData>({
+    tags: [],
+    ProjectLocation: '',
+    projectLocation: '',
+    projectName: '',
+    ProjectState: '',
+    ProjectAxis: '',
+  });
 
+  const updateMediaUploadSelection = (item: {
+    projectAxis?: string;
+    projectName?: string;
+    projectLocation?: string;
+  }) => {
+    setMediaUploadData((current) => ({
+      ...current,
+      ProjectAxis: item.projectAxis ?? current.ProjectAxis,
+      projectName: item.projectName ?? current.projectName,
+      projectLocation: item.projectLocation ?? current.projectLocation,
+    }));
+  };
+
+  
   // interface IprojectData {
   //   HouseData:any,
   // }
@@ -89,6 +131,36 @@ React.useEffect(() => {
   }
 }, [projectHouseData]);
 
+  const [allProjectStates, setAllProjectStates] = useState<string[]>([
+    'Lagos',
+    'Abuja',
+    'Port Harcourt',
+  ]);
+
+  const [allProjectAxis, setallProjectAxis] = React.useState(['Axis 1', 'Axis 2', 'Axis 3', 'Axis 4', 'P-Line', 'QQ-Line', 'T-Line Extension', 'T-Line']);
+
+  const [allProjectLocationsinStates, setAllProjectLocationsinStates] = useState<string[]>([
+    'Kabusa',
+    'Galadimawa',
+  ]);
+
+  const [allProjectNames, setAllProjectNames] = useState<string[]>([
+    'City View',
+    'Sunny Vale',
+    'SVG Kabusa',
+    'Rock Vale',
+    'Ocean Vale',
+    'Wumba',
+  ]);
+
+  const [allProjectHouseTypes, setAllProjectHouseTypes] = useState<string[]>([
+    '2 Bedroom Bungalow',
+    '3 Bedroom Duplex',
+    '4 Bedroom Mansion',
+    'Studio Apartment',
+    '1 Bedroom Flat',
+  ]);
+
   // Fetch projects from Sanity and update state i.e HOUSEDATA
 
 
@@ -114,17 +186,33 @@ React.useEffect(() => {
 
   return (
     <ProjectsContext.Provider
-      value={{ projects, selectedProject, setSelectedProject, addProject, updateProject, removeProject, projectHouseData }}
+      value={{
+        projects,
+        selectedProject,
+        setSelectedProject,
+        addProject,
+        updateProject,
+        removeProject,
+        projectHouseData,
+        mediaUploadData,
+        setMediaUploadData,
+        updateMediaUploadSelection,
+        allProjectStates,
+        allProjectAxis,
+        allProjectLocationsinStates,
+        allProjectNames,
+        allProjectHouseTypes,
+      }}
     >
       {children}
     </ProjectsContext.Provider>
   );
 }
 
-export function useProjects(): ProjectsContextValue {
+export function useProjectsContext(): ProjectsContextValue {
   const ctx = useContext(ProjectsContext);
   if (!ctx) {
-    throw new Error('useProjects must be used within ProjectsProvider');
+    throw new Error('useProjectsContext must be used within ProjectsProvider');
   }
   return ctx;
 }

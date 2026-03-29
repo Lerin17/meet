@@ -21,11 +21,34 @@ const page = () => {
   return (
     <div className="    w-full flex flex-col  bg-white h-screen">
       <div className="flex items-center w-[100%] h-full bg-white  ">
-        <div className="w-1/2 pt-30 flex flex-col justify-content h-full border border-gray-300 font-helvetica bg-[#e5e5db] text-black  ">
-          <h1 className="text-2xl font-bold mb-4 w-full">{selectedHouse.title}</h1>
+        <div className="w-1/2 pt-30 flex flex-col justify-content h-full border border-gray-300 font-helvetica bg-[#e5e5db] text-black  px-3">
 
-          <div className="w-8/12  text-center">
+        <div className="w-8/12  text-start align-left text-xs">
                   <p>{selectedHouse.description}</p>
+          </div>
+
+          <div className = 'flex w-full justify-between mt-10 '>
+           <div className="text-xl font-bold mb-4 w-1/2 align-left">{selectedHouse.title}</div>
+
+            <div className="text-xl font-bold mb-4 w-1/2 align-left">{selectedHouse.title}</div>
+          </div>
+         
+
+          <div className="flex  items-end h-full w-full  ">
+            <div className="flex w-8/12 justify-between font-bold mb-20">
+                  <div>
+              Plot Size
+                </div>
+
+            <div>
+              500sqm
+            </div>
+            </div>
+          
+
+            <div className="text-xs">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat, deserunt consequatur ut numquam architecto commodi. 
+            </div>
           </div>
 
         </div>
@@ -38,11 +61,11 @@ const page = () => {
           />
         </div>
       </div>
-
+{/* 
       <div className="fixed bg-black flex items-center justify-center text-white w-1/2 h-16 bottom-0 uppercase font-helvetica ">
       
         Upload
-      </div>
+      </div> */}
     </div>
   );
 };

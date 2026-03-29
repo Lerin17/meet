@@ -26,6 +26,7 @@
     "formidable": "^3.5.4",
     "framer-motion": "^12.23.25",
     "googleapis": "^171.4.0",
+    "image-size": "^2.0.2",
     "justified-layout": "^4.1.0",
     "justifiedGallery": "^3.8.1",
     "lightgallery": "^2.9.0",

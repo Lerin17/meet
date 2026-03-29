@@ -117,7 +117,7 @@ export const UtilityProvider = ({ children }: { children: React.ReactNode }) => 
     updateDimensions()
     updateScroll()
 
-        console.log("UtilityProvider mounted izzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
+        // console.log("UtilityProvider mounted izzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
 
     window.addEventListener("resize", updateDimensions)
     window.addEventListener("scroll", updateScroll, { passive: true })

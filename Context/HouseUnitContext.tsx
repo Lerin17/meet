@@ -3,7 +3,7 @@
 import React, { createContext , useContext, useState, ReactNode, use } from 'react';
 import {client} from '../lib/sanity';
 import { useProject } from 'sanity';
-import { useProjects } from './ProjectsDataContext';
+import { useProjectsContext } from './ProjectsDataContext';
 
 export type HouseType = 'apartment' | 'house' | 'condo' | 'townhouse';
 
@@ -172,10 +172,10 @@ export const HouseUnitProvider: React.FC<{ children: ReactNode }> = ({ children 
 
 
 
-    const {projectHouseData} = useProjects()
+    const {projectHouseData} = useProjectsContext()
 
     const [houseType, setHouseType] = useState<HouseType>('house');
-    const [selectedHouse, setSelectedHouse] = useState<SimpleHouse | null>(null);
+    const [selectedHouse, setSelectedHouse] = useState<SimpleHouse | null>();
 
     const getSelectedHouse = (index:any) => {
         return projectHouseData.filter((item:any) => item.code == index)

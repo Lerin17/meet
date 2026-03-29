@@ -12,7 +12,7 @@ import { useUtilityContext } from '@/Context/UtilityContext'
 
 const page = () => {
     const [scrollY, setScrollY] = React.useState(0)
-    const { setComponentScrollY } = useUtilityContext()
+    const { setComponentScrollY, isSmallScreen } = useUtilityContext()
 
     const { projectHouseData } = useProjects()
     const scrollRef = useRef<HTMLDivElement>(null)
@@ -88,18 +88,21 @@ transition: 'height 0.4s ease-in-out' }}>
       <div ref={scrollRef} className='flex w-full overflow-y-auto  justify-center border h-full'>
               <div className=' w-[96%] pt-[150px]'>
         {getFilteredHouseData.map((house:any, index:any) => (
-            <HouseCard
+          <div className=''>
+               <HouseCard
             key={index}
             house={house}
             />
+          </div>
+         
         ))}
       </div>
       </div>
 
-<div className='fixed bg-black flex items-center justify-center text-white w-full h-16 bottom-0 uppercase font-helvetica '>
+{/* <div className='fixed bg-black flex items-center justify-center text-white w-full h-16 bottom-0 uppercase font-helvetica '>
     Upload
 </div>
-    
+     */}
     </div>
   )
 }

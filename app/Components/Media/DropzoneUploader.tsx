@@ -144,7 +144,7 @@ export default function DropzoneUploader() {
       {/* Dropzone Area */}
       <div
         {...getRootProps()}
-        className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer ${
+        className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer h-[200px] ${
           isDragActive
             ? 'border-indigo-500 bg-indigo-50'
             : isUploading
@@ -175,6 +175,9 @@ export default function DropzoneUploader() {
           </div>
         )}
       </div>
+
+{/* 
+      /////////////////////////// */}
 
       {/* Upload Progress List */}
       {uploads.length > 0 && (
